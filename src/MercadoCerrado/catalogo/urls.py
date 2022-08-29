@@ -2,6 +2,7 @@ from django.urls import path
 from .views import DetalleProductos, ListaProductos, AgregarProducto, EditarProducto, EliminarProducto
 from django.contrib.auth.views import LogoutView
 from catalogo import views
+
 urlpatterns = [
     path ('', ListaProductos.as_view(), name = 'catalogo'),
     path ('producto/<int:pk>', DetalleProductos.as_view(), name = 'descripcion_producto'),
