@@ -18,15 +18,18 @@ class DetalleProductos (DetailView):
 
 class AgregarProducto (CreateView):
     model = Producto
+    template_name = "edicion_producto.html"
     fields = ["nombre", "precio", "descripcion", "imagen"]
     success_url = reverse_lazy("catalogo")
 
 class EditarProducto (UpdateView):
     model = Producto
+    template_name = "edicion_producto.html"
     fields = ["nombre", "precio", "descripcion", "imagen"]
     success_url = reverse_lazy("catalogo")
 
 class EliminarProducto (DeleteView):
     model = Producto
+    template_name = "eliminar_producto.html"
     context_object_name = "producto"
     success_url = reverse_lazy("catalogo")
