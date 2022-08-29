@@ -1,0 +1,13 @@
+<a href="{% url 'catalogo' %}"> volver </a>
+
+<h1>{{producto}}</h1>
+
+<img src="{{producto.imagen.url}}" width="600">
+
+<h2> Descripción</h2>
+
+<table>
+    <tr>{{producto.precio}} publicado en {{producto.agregado}}</tr>
+</table>
+
+<p>{{producto.descripcion|safe}}</p>

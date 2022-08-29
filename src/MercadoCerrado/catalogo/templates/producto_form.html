@@ -1,0 +1,9 @@
+<h1>
+    Agrega un nuevo producto
+</h1>
+<a href="{% url 'catalogo' %}"> Cancelar</a>
+<form method = "POST" action = "" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type = submit value = "publicar">
+</form>
