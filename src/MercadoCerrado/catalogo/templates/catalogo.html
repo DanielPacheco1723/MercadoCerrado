@@ -4,6 +4,9 @@
 
 {% block comodin %}
 
+<h1>Productos</h1>
+<a href="{% url 'form-producto' %}"> Publica un nuevo producto</a>
+
 {% for producto in catalogo %}
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
@@ -11,19 +14,19 @@
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <img class="card-img-top" src="{{producto.imagen.url}}" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <h5 class="fw-bolder">Fancy Product</h5>
+                            <h5 class="fw-bolder">{{producto.nombre}}</h5>
                             <!-- Product price-->
-                            $40.00 - $80.00
+                            {{producto.precio}}
                         </div>
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'descripcion_producto' producto.id %}">Ver mas</a></div>
                     </div>
                 </div>
             </div>
@@ -35,27 +38,8 @@
 
 <h1>Productos</h1>
 <a href="{% url 'form-producto' %}"> Publica un nuevo producto</a>
-<table>
-    <tr>
-            <th> Articulos</th>
-    </tr>
-    
-    {% for producto in catalogo %}
-        
-    <tr>
-        <td>
-            {% if producto.imagen %}
-                <img src="{{producto.imagen.url}}" width="200">   
-            {% endif %}
-        </td>
-
-        <td> {{producto.nombre}} {{producto.precio}} </td>
-
-        <td> <a href=" {% url 'descripcion_producto' producto.id %} ">Ver mas</a> </td>
-        <td> <a href=" {% url 'editar_producto' producto.id %} ">Editar</a> </td>
-        <td> <a href=" {% url 'eliminar_producto' producto.id %} ">Eliminar</a> </td>
-    </tr>
-
-    {% endfor %}
-</table>
 {% endblock comodin %}
+
+<td> <a href=" {% url 'descripcion_producto' producto.id %} ">Ver mas</a> </td>
+<td> <a href=" {% url 'editar_producto' producto.id %} ">Editar</a> </td>
+<td> <a href=" {% url 'eliminar_producto' producto.id %} ">Eliminar</a> </td>
