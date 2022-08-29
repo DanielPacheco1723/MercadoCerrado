@@ -46,7 +46,7 @@ def register(request):
             username = form.cleaned_data['username']
             first_name=form.cleaned_data['first_name']
             form.save()
-            return render(request, "MCD1/correcto.html", {"mensaje":"Usuario Creado!"})
+            return render(request, "index.html", {"mensaje":"Usuario Creado!"})
       else:
             form = UserRegisterForm()
-      return render(request, "MCD1/registro.html", {"form": form})    
+      return render(request, "registro.html", {"form": form})    
