@@ -13,32 +13,16 @@
     
 </head>
 <body>
-     
         <form class="formularioLogin" action="" method="POST">
-
             <h2>{{mensaje}}</h2>
-
             </br>
-
             <a href="{% url 'Inicio' %}"><img class="imgLogin" src="../../static/MCD1/img/logo.png" alt=""></a>
-
             <h3>Iniciar Sesión</h3>
-    
             {%  csrf_token %}
-    
             {{form.as_p}}
-    
             <button class="enviar" type="submit">Iniciar Sesión</button>
             <a href="{% url 'Inicio' %}"><button class="cancelar" type="button">Cancelar</button></a>
-
-
             <p>No estas registrado? <a href="{% url 'Register' %}">Registrate!</a></p>
-
-            
-    
-    
-    
         </form>
-
 </body>
 </html>
