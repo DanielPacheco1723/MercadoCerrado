@@ -1,16 +1,15 @@
-
 {% extends 'base.html' %}
-
 
 {% block comodin %}
 
 <h1>Productos</h1>
 <a href="{% url 'form-producto' %}"> Publica un nuevo producto</a>
 
-{% for producto in catalogo %}
+
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {% for producto in catalogo %}
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Product image-->
@@ -27,19 +26,15 @@
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'descripcion_producto' producto.id %}">Ver mas</a></div>
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'editar_producto' producto.id %}">Editar</a></div>
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'eliminar_producto' producto.id %}">Eliminar</a></div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
     </div>
 </section>
-{% endfor %}
 
-<h1>Productos</h1>
-<a href="{% url 'form-producto' %}"> Publica un nuevo producto</a>
 {% endblock comodin %}
-
-<td> <a href=" {% url 'descripcion_producto' producto.id %} ">Ver mas</a> </td>
-<td> <a href=" {% url 'editar_producto' producto.id %} ">Editar</a> </td>
-<td> <a href=" {% url 'eliminar_producto' producto.id %} ">Eliminar</a> </td>
