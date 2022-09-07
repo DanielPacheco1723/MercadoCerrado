@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block comodin %}
+
 <form action="" method="POST">
     {% csrf_token %}
     <p> ¿Deseas dar de baja el producto: "{{producto}}" ?</p>
@@ -5,3 +9,5 @@
     <a href="{% url 'catalogo' %}"> cancelar </a>
 
 </form>
+
+{% endblock comodin %}

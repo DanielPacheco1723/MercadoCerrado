@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block comodin %}
+
 <a href="{% url 'catalogo' %}"> volver </a>
 
 <h1>{{producto}}</h1>
@@ -11,3 +15,5 @@
 </table>
 
 <p>{{producto.descripcion|safe}}</p>
+
+{% endblock comodin %}
