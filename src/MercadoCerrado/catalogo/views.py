@@ -42,3 +42,23 @@ class EliminarProducto (DeleteView):
     template_name = "eliminar_producto.html"
     context_object_name = "producto"
     success_url = reverse_lazy("catalogo")
+
+def editar_perfil(request):
+    print('method:',request.method)
+    print('method:',request.POST)
+    usuario = request.user
+    
+    if request.method == 'POST':
+        miFormulario = UserChangeForm(request.POST, instance=request.user)
+        
+        if miFormulario.is_valid():
+            data = miFormulario.cleaned_data
+            
+            usuario.first_name = data["first_name"]            
+            usuario.last_name = data["last_name"]
+            usuario.email = data["email"]
+            usuario.save()
+        return render(request, "base.html", {"mensaje": "Datos actualizados"})
+    else:
+        miFormulario = UserChangeForm(instance=request.user) 
+    return render(request, "editarperfil.html",{"miFormulario": miFormulario})  

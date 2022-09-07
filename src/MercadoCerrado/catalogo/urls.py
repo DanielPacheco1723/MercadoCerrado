@@ -10,5 +10,6 @@ urlpatterns = [
     path ('eliminar-producto/<int:pk>', EliminarProducto.as_view(), name = 'eliminar_producto'),
     path('login/', login_view),
     path('logout/', logout_view),
-    path('register/', register_view)
+    path('register/', register_view),
+    path('accounts/profile/', editar_perfil, name="EditarPerfil")
 ]
