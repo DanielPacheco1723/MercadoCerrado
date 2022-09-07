@@ -1,5 +1,5 @@
 from django.urls import include, path, re_path
-from .views import DetalleProductos, ListaProductos, AgregarProducto, EditarProducto, EliminarProducto
+from .views import DetalleProductos, ListaProductos, AgregarProducto, EditarProducto, EliminarProducto, editar_perfil
 from accounts.views import login_view,logout_view,register_view
 
 urlpatterns = [
