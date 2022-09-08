@@ -56,4 +56,12 @@ def editar_perfil(request):
         return render(request, "base.html", {"mensaje": "Datos actualizados"})
     else:
         miFormulario = UserChangeForm(instance=request.user) 
-    return render(request, "editarperfil.html",{"miFormulario": miFormulario})  
+    return render(request, "editarperfil.html",{"miFormulario": miFormulario})
+
+def about_us(request):
+
+    
+    if request.method == 'POST':
+        return render(request, "about-us.html")    
+    else:
+        return render(request, "about-us.html")

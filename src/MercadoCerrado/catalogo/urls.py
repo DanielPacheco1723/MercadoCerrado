@@ -1,5 +1,5 @@
 from django.urls import include, path, re_path
-from .views import DetalleProductos, ListaProductos, AgregarProducto, EditarProducto, EliminarProducto, editar_perfil
+from .views import DetalleProductos, ListaProductos, AgregarProducto, EditarProducto, EliminarProducto, editar_perfil, about_us
 from accounts.views import login_view,logout_view,register_view
 
 urlpatterns = [
@@ -11,5 +11,6 @@ urlpatterns = [
     path('accounts/login/', login_view),
     path('accounts/logout/', logout_view),
     path('accounts/singup/', register_view),
-    path('accounts/profile/', editar_perfil, name="EditarPerfil")
+    path('accounts/profile/', editar_perfil, name="EditarPerfil"),
+    path('about-us/', about_us, name="about_us")
 ]
