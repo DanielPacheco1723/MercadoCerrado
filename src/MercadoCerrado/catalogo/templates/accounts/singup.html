@@ -1,17 +1,48 @@
+{% load static %}
 
-
-{% block content %}
-
-{% if not request.user.is_authenticated %}
-    <div style='margin-top:30px;'>
-        <form method='POST'>{% csrf_token %}
-            {{ form.as_p }}
-            <button type='submit'>Register</button>
-        </form>
-        <p>Already have an account? Please <a href='/accounts/login'>Login</a></p>
-    </div>
-{% else %}
-<p>You're already logged in and cannot register. Would you like to <a href='/accounts/logout/'>logout</a>?</p>
-{% endif %}
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Login-Mercado Cerrado</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href=" {% static 'css/login.css' %}" rel="stylesheet" />
+        <link href=" {% static 'css/styles.css' %}" rel="stylesheet" />
+    
+    </head>
+    <div class="demo-container">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-12 mx-auto">
+                <div class="text-center pb-5">
+                    <h4>Mercado Central</h4>
+                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                        <h2>SING UP</h2>
+                            {% block content %}
+                            {% if not request.user.is_authenticated %}
+                                <div style='margin-top:30px;'>
+                                    <form method='POST'>{% csrf_token %}
+                                        {{ form.as_p }}
+                                        <button type='submit'>Register</button>
+                                    </form>
+                                    <p>¿Ya tienes una cuenta? Por favor <a href='/accounts/login'>Login</a></p>
+                                </div>
+                            {% else %}
+                            <p>Ya estás conectado y no puedes registrarte. Le gustaría <a href='/accounts/logout/'>logout</a>?</p>
+                            {% endif %}
+                            {% endblock %}
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</html>
