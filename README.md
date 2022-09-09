@@ -12,7 +12,7 @@ Cada usuario puede editar su perfil completando los campos y cargar un avatar.
 
 ### Daniel Pacheco
 
-Realizo las tareas de Agregar/Editar los productos. 
+Realizo las tareas de Home/Agregar/Editar/Eliminar los productos. Y el set up inicial del proyecto 
 
 ### Edward Ap Iwan
 
